@@ -51,15 +51,15 @@ x = [ 0, 0.5, 1, 1.5, 2, 2.5 ];
 out = pdf( x );
 // returns [ ~0.399, ~0.352, ~0.242, ~0.13, ~0.054, ~0.0175 ]
 
-x = new Int8Array( x );
+x = new Float32Array( x );
 out = pdf( x );
 // returns Float64Array( [~0.399,~0.352,~0.242,~0.13,~0.054,~0.0175] )
 
-x = new Int16Array( 6 );
+x = new Float64Array( 6 );
 for ( i = 0; i < 6; i++ ) {
 	x[ i ] = i*0.5;
 }
-mat = matrix( x, [3,2], 'int16' );
+mat = matrix( x, [3,2], 'float64' );
 /*
 	[ 0  0.5
 	  1  1.5
@@ -317,14 +317,14 @@ out = pdf( data, {
 });
 
 // Typed arrays...
-data = new Int32Array( 10 );
+data = new Float32Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
 	data[ i ] = -2.5 + i * 0.5;
 }
 out = pdf( data );
 
 // Matrices...
-mat = matrix( data, [5,2], 'int32' );
+mat = matrix( data, [5,2], 'float32' );
 out = pdf( mat );
 
 // Matrices (custom output data type)...
