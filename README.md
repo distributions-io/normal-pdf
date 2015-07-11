@@ -6,7 +6,7 @@ Probability Density Function
 
 The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for a [Normal](https://en.wikipedia.org/wiki/Normal_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="" data-equation="eq:pdf_function">
+<div class="equation" align="center" data-raw-text=" 	f(x;\mu,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x - \mu)^2}{2 \sigma^2}}" data-equation="eq:pdf_function">
 	<img src="" alt="Probability density function (PDF) for a Normal distribution.">
 	<br>
 </div>
@@ -283,7 +283,7 @@ var data,
 // Plain arrays...
 data = new Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = i * 0.5;
+	data[ i ] = -2.5 + i * 0.5;
 }
 out = pdf( data );
 
@@ -314,7 +314,7 @@ out = pdf( data, {
 // Typed arrays...
 data = new Int32Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = i;
+	data[ i ] = -2.5 + i * 0.5;
 }
 out = pdf( data );
 

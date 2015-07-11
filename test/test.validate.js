@@ -63,6 +63,30 @@ describe( 'validate', function tests() {
 	});
 
 
+	it( 'should return an error if provided a `sigma` parameter which is not a non-negative number', function test() {
+		var values, err;
+		 values = [
+			-0.2,
+			-3,
+			'5',
+			[],
+			true,
+			undefined,
+			null,
+			NaN,
+			function(){},
+			{}
+		];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			err = validate( {}, {
+				'sigma': values[ i ]
+			});
+			assert.isTrue( err instanceof TypeError );
+		}
+	});
+
+
 	it( 'should return an error if provided an accessor which is not a function', function test() {
 		var values, err;
 

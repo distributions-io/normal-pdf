@@ -13,7 +13,7 @@ var data,
 // Plain arrays...
 data = new Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = i * 0.5;
+	data[ i ] = -2.5 + i * 0.5;
 }
 out = pdf( data );
 console.log( 'Arrays: %s\n', out );
@@ -55,7 +55,7 @@ console.log( '\n' );
 // Typed arrays...
 data = new Int32Array( 10 );
 for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = i;
+	data[ i ] = -2.5 * 0.5 * i;
 }
 tmp = pdf( data );
 out = '';

@@ -33,4 +33,12 @@ describe( 'number pdf', function tests() {
 		expect( pdf ).to.be.a( 'function' );
 	});
 
+	it( 'should partially apply the Normal pdf when `sigma` is equal to zero', function test() {
+		var pdf;
+		pdf = partial( 0, 0 );
+		assert.strictEqual( pdf( 0 ), Number.POSITIVE_INFINITY );
+		assert.strictEqual( pdf( -1 ), 0 );
+		assert.strictEqual( pdf( 1 ), 0 );
+	});
+
 });

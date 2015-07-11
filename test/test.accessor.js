@@ -44,7 +44,8 @@ describe( 'accessor pdf', function tests() {
 		actual = pdf( actual, data, mu, sigma,getValue );
 
 		expected = [
-
+			0.004431848, 0.053990967, 0.241970725, 0.398942280,
+			0.241970725, 0.053990967, 0.004431848
 		];
 
 		for ( i = 0; i < actual.length; i++ ) {

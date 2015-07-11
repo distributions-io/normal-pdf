@@ -20,15 +20,18 @@ var expect = chai.expect,
 
 describe( 'number pdf', function tests() {
 
-	var mu = 0,
-		sigma = 1;
+	var mu = 2,
+		sigma = 0;
 
 	it( 'should export a function', function test() {
 		expect( pdf ).to.be.a( 'function' );
 	});
 
 	it( 'should evaluate the Normal probability density function', function test() {
-		assert.closeTo( pdf( 2, mu, sigma ),  , 1e-4 );
+		// point mass at 2:
+		assert.strictEqual( pdf( 2, mu, sigma ), Number.POSITIVE_INFINITY );
+		assert.strictEqual( pdf( 2.5, mu, sigma ), 0 );
+		assert.strictEqual( pdf( 1.5, mu, sigma ), 0 );
 	});
 
 });

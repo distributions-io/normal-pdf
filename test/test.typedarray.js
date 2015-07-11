@@ -20,8 +20,8 @@ var expect = chai.expect,
 
 describe( 'typed-array pdf', function tests() {
 
-	var mu = 0,
-		sigma = 1;
+	var mu = 3,
+		sigma = 3;
 
 	it( 'should export a function', function test() {
 		expect( pdf ).to.be.a( 'function' );
@@ -50,9 +50,22 @@ describe( 'typed-array pdf', function tests() {
 
 		actual = pdf( actual, data, mu, sigma );
 
-		// Evaluated on Wolfram Alpha:
+		// Evaluated in R:
 		expected = new Float64Array([
-
+			0.0806569081730478,
+			0.0806569081730478,
+			0.0806569081730478,
+			0.0806569081730478,
+			0.101627642320172,
+			0.0596194721648468,
+			0.106482668507451,
+			0.0546700248919979,
+			0.00874062969790316,
+			1.11236207985461e-05,
+			0.125794409230998,
+			0.0331590462642496,
+			0.132980760133811,
+			0.0179969888377294
 		]);
 
 		for ( i = 0; i < actual.length; i++ ) {
