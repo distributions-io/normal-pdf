@@ -1,6 +1,6 @@
 {
   "name": "distributions-normal-pdf",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Normal distribution probability density function (PDF)",
   "author": {
     "name": "Philipp Burckhardt",
@@ -15,7 +15,8 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha",
     "test-cov": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --dir ./reports/coverage -- -R spec",
-    "codecov": "istanbul cover ./node_modules/.bin/_mocha --dir ./reports/codecov/coverage --report lcovonly -- -R spec && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"  },
+    "codecov": "istanbul cover ./node_modules/.bin/_mocha --dir ./reports/codecov/coverage --report lcovonly -- -R spec && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"
+  },
   "main": "./lib",
   "repository": {
     "type": "git",
