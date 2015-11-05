@@ -1,17 +1,17 @@
 Probability Density Function
 ===
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
 > [Normal](https://en.wikipedia.org/wiki/Normal_distribution) distribution probability density function (PDF).
 
-The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for a [Normal](https://en.wikipedia.org/wiki/Normal_distribution) random variable is
+The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for a [normal](https://en.wikipedia.org/wiki/Normal_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text=" 	f(x;\mu,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x - \mu)^2}{2 \sigma^2}}" data-equation="eq:pdf_function">
 	<img src="https://cdn.rawgit.com/distributions-io/normal-pdf/041aba5f623f0203e608bb41ba2c4d0227665429/docs/img/eqn.svg" alt="Probability density function (PDF) for a Normal distribution.">
 	<br>
 </div>
 
-where `mu` is the mean  and `sigma` is the standard deviation.
+where `mu` is the mean  and `sigma > 0` is the standard deviation.
 
 ## Installation
 
@@ -30,7 +30,7 @@ var pdf = require( 'distributions-normal-pdf' );
 
 #### pdf( x[, options] )
 
-Evaluates the [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for the [Normal](https://en.wikipedia.org/wiki/Normal_distribution) distribution. `x` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
+Evaluates the [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for the [normal](https://en.wikipedia.org/wiki/Normal_distribution) distribution. `x` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
 
 ``` javascript
 var matrix = require( 'dstructs-matrix' ),
@@ -69,7 +69,7 @@ mat = matrix( x, [3,2], 'float64' );
 out = pdf( mat );
 /*
 	[ ~0.399 ~0.352
-	  ~0.242 ~0.13 
+	  ~0.242 ~0.13
 	  ~0.054 ~0.0175 ]
 */
 ```
@@ -84,7 +84,7 @@ The function accepts the following `options`:
 *	__path__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path.
 *	__sep__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path separator. Default: `'.'`.
 
-A [Normal](https://en.wikipedia.org/wiki/Normal_distribution) distribution is a function of 2 parameter(s): `mu`(mean ) and `sigma`(standard deviation). By default, `mu` is equal to `0` and `sigma` is equal to `1`. To adjust either parameter, set the corresponding option(s).
+A [normal](https://en.wikipedia.org/wiki/Normal_distribution) distribution is a function of two parameters: `mu`(mean) and `sigma`(standard deviation). By default, `mu` is equal to `0` and `sigma` is equal to `1`. To adjust either parameter, set the corresponding option.
 
 ``` javascript
 var x = [ 0, 0.5, 1, 1.5, 2, 2.5 ];
@@ -158,7 +158,7 @@ x = new Int8Array( [0,1,2,3,4] );
 
 out = pdf( x, {
 	'mu': 2,
-	'sigma': 2, 
+	'sigma': 2,
 	'dtype': 'int32'
 });
 // returns Int32Array( [0,0,1,0,0] )
@@ -166,7 +166,7 @@ out = pdf( x, {
 // Works for plain arrays, as well...
 out = pdf( [0,0.5,1,1.5,2], {
 	'mu': 2,
-	'sigma': 2, 
+	'sigma': 2,
 	'dtype': 'uint8'
 });
 // returns Uint8Array( [0,0,1,0,0] )
@@ -207,7 +207,7 @@ out = pdf( mat, {
 });
 /*
 	[ ~0.399 ~0.352
-	  ~0.242 ~0.13 
+	  ~0.242 ~0.13
 	  ~0.054 ~0.0175 ]
 */
 
@@ -385,8 +385,8 @@ Copyright &copy; 2015. The [Compute.io](https://github.com/compute-io) Authors.
 [travis-image]: http://img.shields.io/travis/distributions-io/normal-pdf/master.svg
 [travis-url]: https://travis-ci.org/distributions-io/normal-pdf
 
-[coveralls-image]: https://img.shields.io/coveralls/distributions-io/normal-pdf/master.svg
-[coveralls-url]: https://coveralls.io/r/distributions-io/normal-pdf?branch=master
+[codecov-image]: https://img.shields.io/codecov/c/github/distributions-io/normal-pdf/master.svg
+[codecov-url]: https://codecov.io/github/distributions-io/normal-pdf?branch=master
 
 [dependencies-image]: http://img.shields.io/david/distributions-io/normal-pdf.svg
 [dependencies-url]: https://david-dm.org/distributions-io/normal-pdf
